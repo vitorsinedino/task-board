@@ -40,6 +40,8 @@ class Board extends Component {
   }
 
   render() {
+    const { data, loading, error } = this.state;
+
     const lanes = [
       { id: 1, title: "To Do" },
       { id: 2, title: "In Progress" },
@@ -50,7 +52,13 @@ class Board extends Component {
     return (
       <BoardWrapper>
         {lanes.map((lane) => (
-          <Lane key={lane.id} title={lane.title} />
+          <Lane
+            key={lane.id}
+            title={lane.title}
+            loading={loading}
+            error={error}
+            thickets={data.filter((ticket) => ticket.lane === lane.id)}
+          />
         ))}
       </BoardWrapper>
     );
