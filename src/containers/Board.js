@@ -57,7 +57,7 @@ class Board extends Component {
             title={lane.title}
             loading={loading}
             error={error}
-            thickets={data.filter((ticket) => ticket.lane === lane.id)}
+            tickets={data.filter((ticket) => ticket.lane === lane.id)}
           />
         ))}
       </BoardWrapper>
