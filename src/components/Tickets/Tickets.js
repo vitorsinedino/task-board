@@ -5,9 +5,11 @@ const TicketWrapper = styled.div`
   background: darkGray;
   padding: 20px;
   border-radius: 20px;
+  margin-botton: 5%;
 
   &:not(:last-child) {
     margin-botton: 5%;
+    margin-right: ${(props) => (!!props.marginRight ? "1%" : "0")};
   }
 `;
 
@@ -20,9 +22,9 @@ const Body = styled.p`
   width: 100%;
 `;
 
-const Ticket = ({ ticket }) => (
-  <TicketWrapper>
-    <title>{ticket.title}</title>
+const Ticket = ({ marginRight, ticket }) => (
+  <TicketWrapper marginRight={marginRight}>
+    <Title>{ticket.title}</Title>
     <Body>{ticket.body}</Body>
   </TicketWrapper>
 );
