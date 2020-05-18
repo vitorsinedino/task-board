@@ -1,6 +1,6 @@
 import React from "react";
 
-const withDataFetching = (WrappedComponent) => {
+export default function withDataFetching(WrappedComponent) {
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -28,7 +28,17 @@ const withDataFetching = (WrappedComponent) => {
         });
       }
     }
-  };
-};
 
-export default withDataFetching();
+    render() {
+      const { data, loading, error } = this.state;
+      return (
+        <WrappedComponent
+          data={data}
+          loading={loading}
+          error={error}
+          {...this.props}
+        />
+      );
+    }
+  };
+}
